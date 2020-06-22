@@ -2,7 +2,7 @@ package br.ucsal;
  
 import java.util.Arrays;
 import java.util.Scanner;
- 
+import java.util.Random;
  
  
 public class Jogos {
@@ -87,7 +87,8 @@ public class Jogos {
             }
             break;
         case 3:
-            imprimir("\nIniciando Campo minado");
+            imprimir("\nIniciando Campo minado\n\n");
+            campoMinado(user1, user2);
             break;
         case 4:
             imprimir("Jogo encerrado!");
@@ -353,6 +354,9 @@ public class Jogos {
         }
  
     } // FIM DO JOGO DA FORCA
+    
+    
+    // INICIO DO JOGO BATALHA NAVAL
  
     public static int linhas = 11;
     public static int colunas = 11;
@@ -1607,6 +1611,226 @@ public class Jogos {
         }
     }                                                                                                                       // FIM DO JOGO 'BATALHA NAVAL;
  
+    
+    // INICIO DO CAMPO MINADO
+    
+    private static int[][] minas;
+    private static char[][] tabuleiro;
+    private static int linha, coluna;
+    static Random random = new Random();
+    static Scanner imput = new Scanner(System.in);
+    
+	
+	
+	
+	public static void campoMinado(String user1, String user2) {
+		imprimir("Bem vindo ao jogo campo minado\n"
+				+ "Seu objetivo é liberar todo o tabuleiro sem pisar em nem uma mina\n"
+				+ "Boa sorte\n\n");
+		Tabuleiro();
+		
+		
+		imprimir("\n\nO Que deseja fazer agora?\n");
+        imprimir("[1] - Voltar ao Menu \n");
+        imprimir("[2] - Sair\n");
+        		
+        int fimjogoforca;
+        Scanner imput = new Scanner(System.in);
+        fimjogoforca = imput.nextInt();
+        String[] usuariosfim = new String[2];
+        usuariosfim[0] = user1;
+        usuariosfim[1] = user2;
+        switch (fimjogoforca) {
+		case 1:
+			
+			menu(usuariosfim, 0);
+			break;
+		case 2:
+			imprimir("\n Obrigado por jogar\n\n Jogo encerrado!");
+            System.exit(0);
+			break;
+
+		default:
+			imprimir("\n Você escolheu uma opção inválida, indo para o Menu!");
+			menu(usuariosfim, 0);
+			break;
+		}
+		
+	}
+	
+    static boolean terminar = false;
+    static boolean ganhou = false;
+    static int[] jogada;
+    static int rodada=0;
+    
+   
+	
+	public static void Tabuleiro(){
+       
+		
+		
+		
+		
+		rodada = 0;
+		terminar = false;
+		ganhou = false;
+		minas = new int[10][10];
+        tabuleiro = new char[10][10];
+        iniciaMinas(); // coloca 0 em todas as posições do tabuleiro de minas
+        sorteiaMinas(); //coloca, aleatoriamente, 10 minas no tabuleiro de minas
+        preencheDicas();//preenche o tabuleiro de minas com o número de minas vizinhas
+        iniciaTabuleiro();//inicia o tabuleiro de exibição com _
+        
+        do{
+            rodada++;
+            System.out.println("Rodada "+rodada);
+            exibe();
+            terminar = setPosicao();
+            
+            if(!terminar){
+                abrirVizinhas();
+                terminar = ganhou();
+            }
+            
+        }while(!terminar);
+        
+        if(!ganhou()){
+            System.out.println("Havia uma mina ! Você perdeu!");
+            exibeMinas();
+        } else {
+            System.out.println("Parabéns, você deixou os 8 campos de minas livres em "+rodada+" rodadas");
+            exibeMinas();
+        }
+    }
+        
+    
+    
+    public static boolean ganhou(){
+        int count=0;
+        for(int line = 1 ; line < 9 ; line++)
+            for(int column = 1 ; column < 9 ; column++)
+                if(tabuleiro[line][column]=='_')
+                    count++;
+        if(count == 10)
+            return true;
+        else
+            return false;                
+    }
+    
+    public static void abrirVizinhas(){
+        for(int i=-1 ; i<2 ; i++)
+            for(int j=-1 ; j<2 ; j++)
+                if( (minas[linha+i][coluna+j] != -1) && (linha != 0 && linha != 9 && coluna != 0 && coluna != 9) ){
+                    tabuleiro[linha+i][coluna+j]=Character.forDigit(minas[linha+i][coluna+j], 10);
+                }
+    }
+    
+    public static int getPosicao(int linha, int coluna){
+        return minas[linha][coluna];
+    }
+    
+    public static boolean setPosicao(){
+        
+    
+         do{
+               
+        	 System.out.print("\nLinha: "); 
+                linha = imput.nextInt();
+                System.out.print("Coluna: "); 
+                coluna = imput.nextInt();
+                
+                if( (tabuleiro[linha][coluna] != '_') && ((linha < 9 && linha > 0) && (coluna < 9 && coluna > 0)))
+                    System.out.println("Esse campo já está sendo exibido");
+                
+                if( linha < 1 || linha > 8 || coluna < 1 || coluna > 8)
+                    System.out.println("Escolha números de 1 até 8");
+                
+                
+                
+            }while((linha < 1 || linha > 8) || (coluna < 1 || coluna > 8) || (tabuleiro[linha][coluna] != '_') ); 
+            
+            if(getPosicao(linha, coluna)== -1)
+                return true;
+            else
+                return false;
+            
+    }
+    
+    public static void exibe(){
+        System.out.println("\n     Linhas");
+        for(int linha = 8 ; linha > 0 ; linha--){
+            System.out.print("       "+linha + " ");
+            
+            for(int coluna = 1 ; coluna < 9 ; coluna++){
+                    System.out.print("   "+ tabuleiro[linha][coluna]);
+            }
+                
+            System.out.println();
+        }
+            
+        System.out.println("\n            1   2   3   4   5   6   7   8");
+        System.out.println("                      Colunas");
+        
+    }
+    
+    public static void preencheDicas(){
+        for(int line=1 ; line < 9 ; line++)
+            for(int column=1 ; column < 9 ; column++){
+                
+                    for(int i=-1 ; i<=1 ; i++)
+                        for(int j=-1 ; j<=1 ; j++)
+                            if(minas[line][column] != -1)
+                                if(minas[line+i][column+j] == -1)
+                                    minas[line][column]++;
+                
+            }
+            
+    }
+    
+    public static void exibeMinas(){
+        for(int i=1 ; i < 9; i++)
+            for(int j=1 ; j < 9 ; j++)
+                if(minas[i][j] == -1)
+                    tabuleiro[i][j]='*';
+        
+        exibe();
+    }
+    
+    public static void iniciaTabuleiro(){
+        for(int i=1 ; i<minas.length ; i++)
+            for(int j=1 ; j<minas.length ; j++)
+                tabuleiro[i][j]= '_';
+    }
+    
+    public static void iniciaMinas(){
+        for(int i=0 ; i<minas.length ; i++)
+            for(int j=0 ; j<minas.length ; j++)
+                minas[i][j]=0;
+    }
+    
+    public static void sorteiaMinas(){
+        boolean sorteado;
+        int linha, coluna;
+        for(int i=0 ; i<10 ; i++){
+            
+            do{
+                linha = random.nextInt(8) + 1;
+                coluna = random.nextInt(8) + 1;
+                
+                if(minas[linha][coluna] == -1)
+                    sorteado=true;
+                else
+                    sorteado = false;
+            }while(sorteado);
+            
+            minas[linha][coluna] = -1;
+        }
+    } 
+    // FIM DO CAMPO MINADO
+    
+    
+    
+    
     // MÉTODOS DE IMPRESSÃO:
     public static void imprimir (String temp) {
         System.out.print(temp);
