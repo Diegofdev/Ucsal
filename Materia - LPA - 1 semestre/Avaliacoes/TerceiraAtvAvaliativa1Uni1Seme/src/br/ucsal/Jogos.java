@@ -753,13 +753,13 @@ public class Jogos {
         int x, y;
         Scanner userInput = new Scanner(System.in);
  
-        System.out.println("\n O segundo navio será o 'NAVIO-TANQUE'.");
+        System.out.println("\n O quarto e último navio será o 'PORTA-AVIÕES'.");
  
         do {
             do {       
-                System.out.print("Por favor, escolha onde o primeiro segmento do 'NAVIO-TANQUE' deverá ficar [COLUNA]: ");
+                System.out.print("Por favor, escolha onde o primeiro segmento do 'PORTA-AVIÔES' deverá ficar [COLUNA]: ");
                 x = userInput.nextInt();
-                System.out.print("Por favor, escolha onde o primeiro segmento do 'NAVIO-TANQUE' deverá ficar [LINHA]: ");
+                System.out.print("Por favor, escolha onde o primeiro segmento do 'PORTA-AVIÔES' deverá ficar [LINHA]: ");
                 y = userInput.nextInt();
  
                 if (x > (tabJogo1.length - 2) || y > (tabJogo1.length - 2)) {
@@ -1223,13 +1223,13 @@ public class Jogos {
         int x, y;
         Scanner userInput = new Scanner(System.in);
  
-        System.out.println("\n O segundo navio será o 'NAVIO-TANQUE'.");
+        System.out.println("\n O quarto e último navio será o 'PORTA-AVIÕES.");
  
         do {
             do {       
-                System.out.print("Por favor, escolha onde o primeiro segmento do 'NAVIO-TANQUE' deverá ficar [COLUNA]: ");
+                System.out.print("Por favor, escolha onde o primeiro segmento do 'PORTA-AVIÔES' deverá ficar [COLUNA]: ");
                 x = userInput.nextInt();
-                System.out.print("Por favor, escolha onde o primeiro segmento do 'NAVIO-TANQUE' deverá ficar [LINHA]: ");
+                System.out.print("Por favor, escolha onde o primeiro segmento do 'PORTA-AVIÔES' deverá ficar [LINHA]: ");
                 y = userInput.nextInt();
  
                 if (x > (tabJogo2.length - 2) || y > (tabJogo2.length - 2)) {
