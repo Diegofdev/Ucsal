@@ -7,7 +7,7 @@ import java.util.Random;
  
 public class Jogos {
  
-    public static void main(String[] args) {
+    public static void main(String[] args) {		// METODO MAIN
         bemVindo();
         cadastroUsuario("", 0);
  
@@ -16,18 +16,18 @@ public class Jogos {
  
     }
     //MÉTODO DE BOAS VINDAS
-    public static void bemVindo() {
+    public static void bemVindo() {					// METODO DE IMPRESSÃO DE BOAS VINDAS
         imprimir("Seja bem vindo ao LPA Games 1.0"
                 + "\nAntes de irmos para o menu, Faça o login"
                 + "\n==========================================\n");
     }
  
     //MÉTODO QUE CADASTRA OS USUÁRIOS:
-    public static void cadastroUsuario(String user, int op) {
+    public static void cadastroUsuario(String user, int op) {		
         Scanner imput = new Scanner(System.in);
         String[] usuario = new String[2];
         usuario[0] = user;
-        if(usuario[0].equals("")) {
+        if(usuario[0].equals("")) {								// VERIFICA SE JA TEM ALGUM USUARIO CADASTRADO
             imprimir("Insira o nome do usuario 1: \n");
             usuario[0] = imput.next().toUpperCase();
             validaUsuario(0);
@@ -36,7 +36,7 @@ public class Jogos {
                     + "\n Seja bem vindo: " + usuario[0]);
             usuario[1] = "";
             menu(usuario, op);
-        } else {
+        } else {												// CASO JA TENHA UM USUARIO CADASTRADO PEDIRÁ O SEGUNDO USUÁRIO
             imprimir("Insira o nome do usuario 2\n");
             usuario[1] = imput.next().toUpperCase();
             validaUsuario(111);
@@ -63,7 +63,7 @@ public class Jogos {
             menu = imput.nextInt();
         }
  
-        switch(menu) {
+        switch(menu) {													// VERIFICA QUAL OPÇÃO ESCOLHIDA NO MENU
         case 1:
             if(user2.equals("")) {
                 imprimir("Este jogo requer 2 usuários\n");
@@ -109,7 +109,7 @@ public class Jogos {
         senha[0] = pass;
  
  
-        if(senha[0] != 111) {
+        if(senha[0] != 111) {										// PERGUNTA A SENHA DO USUÁRIO ( MÉTODO SIMBOLICO )
             imprimir("Insira a senha do Usuario 1"
                     + "                     'A senha para o usuario 1 é: 111' \n");
             senha[0] = imput.nextInt();
@@ -136,7 +136,7 @@ public class Jogos {
    
    
     public static int resultForca = 0; 
-    public static void inicioForca(String user1, String user2) {
+    public static void inicioForca(String user1, String user2) {      		// FAZ AS CHAMADAS DO JOGO DA FORCA, RECEBENDO OS USUARIOS CADASTRADOS
         int scorep1 = 0, scorep2 = 0;
         int forcaGame = 0;
        
@@ -146,7 +146,7 @@ public class Jogos {
         for (int i = 0; i < 1; i++) {
            
        
-        if(forcaGame == 0) { //VERIFICA SE É A PRIMEIRA OU SEGUNDA PARTIDA
+        if(forcaGame == 0) { 						//VERIFICA SE É A PRIMEIRA OU SEGUNDA PARTIDA
            
             forca(user1, user2);
             scorep2 = resultForca;
@@ -158,7 +158,7 @@ public class Jogos {
             scorep1 = resultForca;
         }
         }
-        if(scorep1 < scorep2) { //IMPRIME O RESULTADO DA PARTIDA
+        if(scorep1 < scorep2) { 					//IMPRIME O RESULTADO DA PARTIDA
             imprimir(user1 + " ganhou de " + user2 + " com  " + scorep1 + " erros, contra " + scorep2 + " do jogador " + user2 );
         } else if (scorep1 > scorep2) {
             imprimir(user2 + " ganhou de " + user1 + " com  " + scorep2 + " erros, contra " + scorep1 + " do jogador " + user1 );
@@ -166,7 +166,7 @@ public class Jogos {
             imprimir("O jogo empatou");
         }
         
-        imprimir("\n\nO Que deseja fazer agora?\n");
+        imprimir("\n\nO Que deseja fazer agora?\n");			// VERIFICA SE O USUARIO GOSTARIA DE ENCERRAR O JOGO OU VOLTAR AO MENU
         imprimir("[1] - Voltar ao Menu \n");
         imprimir("[2] - Sair\n");
         		
@@ -198,16 +198,16 @@ public class Jogos {
         Scanner imput = new Scanner(System.in);
         imprimir("\nAgora é a vez de " + player1 + " digitar uma palavra para " + player2 + " adivinhar");
         imprimir("\nDigite a palavra: ");
-        String palavra = imput.next().toUpperCase();
+        String palavra = imput.next().toUpperCase();   							//LÊ A PRIMEIRA PALAVRA
        
        
         imprimir("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
        
-        forcaEnforcado(0, palavra);
+        forcaEnforcado(0, palavra);												//IMPRIME A FORCA VAZIA
         resultForca = 0;
         imprimir("\n");
         String[] palavraTemp = new String[palavra.length()];
-        String[] palavraTemp2 = palavra.split("");
+        String[] palavraTemp2 = palavra.split("");								//SEPARA A PALAVRA EM UMA LETRA POR ESPAÇO NO ARRAY
         for (int i = 0; i < palavra.length(); i++) {
             imprimir("-");
             palavraTemp[i] = "-";
@@ -217,7 +217,7 @@ public class Jogos {
         imprimir("\n");
        
         int sair = 0;
-        for (int i = 0; sair < 6; i++) {
+        for (int i = 0; sair < 6; i++) {							//REPETIÇÃO QUE PEDE E CHECA A LETRA PARA O USUARIO
             imprimir("\n" + player2 + " Digite uma letra: \n");
             String letra = imput.next().toUpperCase();
            
@@ -243,7 +243,7 @@ public class Jogos {
                    
                 }
             }
-            for (int j = 0, a = 0, b = 0; j < palavra.length(); j++) {
+            for (int j = 0, a = 0, b = 0; j < palavra.length(); j++) {  			// CONTABILIZA OS PONTOS E MOSTRA O RESULTADO
                 if(letra.charAt(0) != palavra.charAt(j)) {
                     a++;
                 } else {
@@ -1614,23 +1614,17 @@ public class Jogos {
     
     // INICIO DO CAMPO MINADO
     
-    private static int[][] minas;
-    private static char[][] tabuleiro;
-    private static int linha, coluna;
-    static Random random = new Random();
-    static Scanner imput = new Scanner(System.in);
-    
-	
-	
-	
-	public static void campoMinado(String user1, String user2) {
-		imprimir("Bem vindo ao jogo campo minado\n"
-				+ "Seu objetivo é liberar todo o tabuleiro sem pisar em nem uma mina\n"
-				+ "Boa sorte\n\n");
-		Tabuleiro();
-		
-		
-		imprimir("\n\nO Que deseja fazer agora?\n");
+    public static int colunasCM = 11;
+    public static int linhasCM = 11;
+    public static String[][] tabCampoMinado = new String[linhasCM][colunasCM];
+    public static String[][] tabOcultoCampoMinado = new String[linhasCM][colunasCM];
+ 
+ 
+    public static void campoMinado(String user1, String user2) {
+ 
+        jogo();
+        
+        imprimir("\n\nO Que deseja fazer agora?\n");
         imprimir("[1] - Voltar ao Menu \n");
         imprimir("[2] - Sair\n");
         		
@@ -1655,177 +1649,301 @@ public class Jogos {
 			menu(usuariosfim, 0);
 			break;
 		}
-		
-	}
-	
-    static boolean terminar = false;
-    static boolean ganhou = false;
-    static int[] jogada;
-    static int rodada=0;
-    
-   
-	
-	public static void Tabuleiro(){
-       
-		
-		
-		
-		
-		rodada = 0;
-		terminar = false;
-		ganhou = false;
-		minas = new int[10][10];
-        tabuleiro = new char[10][10];
-        iniciaMinas(); // coloca 0 em todas as posições do tabuleiro de minas
-        sorteiaMinas(); //coloca, aleatoriamente, 10 minas no tabuleiro de minas
-        preencheDicas();//preenche o tabuleiro de minas com o número de minas vizinhas
-        iniciaTabuleiro();//inicia o tabuleiro de exibição com _
-        
-        do{
-            rodada++;
-            System.out.println("Rodada "+rodada);
-            exibe();
-            terminar = setPosicao();
-            
-            if(!terminar){
-                abrirVizinhas();
-                terminar = ganhou();
+ 
+    }
+ 
+    public static void jogo() {
+ 
+        introducaoCM();                                             // Mostra a introdução, falando sobre as regras e tals;
+        tabuleiroCM();                                              // Imprime o tabuleiro, pois na regra menciona o tamanho e queria ter uma representação visual disso;
+        aguardeTextoCM();                                           // Texto 'filler'.
+        bombasPosicao();                                            // Ativa as posições das bombas no tabuleiro;
+        imprimirTabuleiroCM();
+        System.out.println("\nTabuleiro pronto!");
+        tabuleiroOcultoCM();                                        // Oculta o tabuleiro;
+        tentativasCM();                                             // Começam as tentativas para ganhar o jogo;
+        System.out.println("Fim de jogo.");
+    }  
+ 
+    public static void introducaoCM() {                             // Mostra a introdução, falando sobre as regras e tals;
+        System.out.println("\n________________________________________________________________");
+        System.out.println("\n[ C A M P O   M I N A D O ]");
+        System.out.println("\nBem vindo ao jogo 'Campo-Minado'!");
+        System.out.println("As regras desse jogo são bem simples:");
+        System.out.println("- Você jogará num tabuleiro igual o mostrado abaixo (10 x 10);");
+        System.out.println("- Você deve acertar todos os 90 quadrados vazios sem atingir nenhuma das 10 minas;");
+        System.out.println("- Se você chegar em 90 pontos, você ganha o jogo.");
+        System.out.println("\nBoa sorte!");
+        System.out.println("________________________________________________________________");
+    }
+ 
+    public static void aguardeTextoCM() {                           // Texto 'filler'.
+        System.out.println("________________________________________________________________");
+        System.out.println("\nTabuleiro sendo preparado.");
+        System.out.println("\nAguarde.");
+        System.out.println("\nAguarde..");
+        System.out.println("\nAguarde...");
+        System.out.println("________________________________________________________________");
+    }
+ 
+    public static void tabuleiroCM() {                                                                              // Tabuleiro do jogo
+        System.out.println("");                                                                                     // Esse método literalmente só serve para criar o tabuleiro...;
+        for (int x = 0; x < tabCampoMinado.length; x++) {                                                           // ... corretamente, aplicando um símbolo qualquer (nesse caso um "L", de 'livre de mina');
+            if (x == 0) {                                                                                           // Ele OBRIGATORIAMENTE precisa ser usado lá no método 'jogo()' NAQUELA ORDEM, pois sem ele o...
+                System.out.println("-------------------------------------------------------------------");          // ... o próximo método não será impresso corretamente;
+                System.out.println("| ### | [1] | [2] | [3] | [4] | [5] | [6] | [7] | [8] | [9] | [10] |");
+                System.out.println("-------------------------------------------------------------------");
             }
-            
-        }while(!terminar);
-        
-        if(!ganhou()){
-            System.out.println("Havia uma mina ! Você perdeu!");
-            exibeMinas();
-        } else {
-            System.out.println("Parabéns, você deixou os 8 campos de minas livres em "+rodada+" rodadas");
-            exibeMinas();
-        }
-    }
-        
-    
-    
-    public static boolean ganhou(){
-        int count=0;
-        for(int line = 1 ; line < 9 ; line++)
-            for(int column = 1 ; column < 9 ; column++)
-                if(tabuleiro[line][column]=='_')
-                    count++;
-        if(count == 10)
-            return true;
-        else
-            return false;                
-    }
-    
-    public static void abrirVizinhas(){
-        for(int i=-1 ; i<2 ; i++)
-            for(int j=-1 ; j<2 ; j++)
-                if( (minas[linha+i][coluna+j] != -1) && (linha != 0 && linha != 9 && coluna != 0 && coluna != 9) ){
-                    tabuleiro[linha+i][coluna+j]=Character.forDigit(minas[linha+i][coluna+j], 10);
+            for (int y = 0; y < tabCampoMinado[x].length; y++) {
+                if (y == 0) {
+                    if (x < 9) {
+                        System.out.print("| [" + (x) + "] ");
+                    } else if (x >= 9) {
+                        System.out.print("|[" + (x) + "] ");
+                    }
+                } else {
+                    tabCampoMinado[x][y] = "L";                                                                     // Esse símbolo pode ser mudado para o que quiser, contando que só ocupe 1 espaço;
+                    System.out.print("|  " + tabCampoMinado[x][y] + "  ");
+                    if (y == 10) {
+                        System.out.print("|");
+                    }
                 }
-    }
-    
-    public static int getPosicao(int linha, int coluna){
-        return minas[linha][coluna];
-    }
-    
-    public static boolean setPosicao(){
-        
-    
-         do{
-               
-        	 System.out.print("\nLinha: "); 
-                linha = imput.nextInt();
-                System.out.print("Coluna: "); 
-                coluna = imput.nextInt();
-                
-                if( (tabuleiro[linha][coluna] != '_') && ((linha < 9 && linha > 0) && (coluna < 9 && coluna > 0)))
-                    System.out.println("Esse campo já está sendo exibido");
-                
-                if( linha < 1 || linha > 8 || coluna < 1 || coluna > 8)
-                    System.out.println("Escolha números de 1 até 8");
-                
-                
-                
-            }while((linha < 1 || linha > 8) || (coluna < 1 || coluna > 8) || (tabuleiro[linha][coluna] != '_') ); 
-            
-            if(getPosicao(linha, coluna)== -1)
-                return true;
-            else
-                return false;
-            
-    }
-    
-    public static void exibe(){
-        System.out.println("\n     Linhas");
-        for(int linha = 8 ; linha > 0 ; linha--){
-            System.out.print("       "+linha + " ");
-            
-            for(int coluna = 1 ; coluna < 9 ; coluna++){
-                    System.out.print("   "+ tabuleiro[linha][coluna]);
+ 
             }
-                
-            System.out.println();
+            System.out.println("");
+            System.out.println("-------------------------------------------------------------------");
         }
-            
-        System.out.println("\n            1   2   3   4   5   6   7   8");
-        System.out.println("                      Colunas");
-        
+ 
     }
-    
-    public static void preencheDicas(){
-        for(int line=1 ; line < 9 ; line++)
-            for(int column=1 ; column < 9 ; column++){
-                
-                    for(int i=-1 ; i<=1 ; i++)
-                        for(int j=-1 ; j<=1 ; j++)
-                            if(minas[line][column] != -1)
-                                if(minas[line+i][column+j] == -1)
-                                    minas[line][column]++;
-                
+ 
+    public static void bombasPosicao() {
+        Random rand = new Random();
+        /*tabCampoMinado[1][2] = "B";
+        tabCampoMinado[1][3] = "B";
+        tabCampoMinado[7][4] = "B";
+        tabCampoMinado[1][5] = "B";
+        tabCampoMinado[1][6] = "B";
+        tabCampoMinado[1][7] = "B";
+        tabCampoMinado[1][8] = "B";
+        tabCampoMinado[1][9] = "B";
+        tabCampoMinado[2][5] = "B";
+        tabCampoMinado[5][2] = "B"; */
+       int d = 0;
+        for (int i = 0, j = 0; j < 10; i++ ) {
+			int a = rand.nextInt(10)+1;
+			int b = rand.nextInt(10)+1;
+			String c = tabCampoMinado[a][b];
+			
+			if (c!="B") {
+				tabCampoMinado[a][b] = "B";
+				j++;
+				d = j;
+			} 
+		}
+       System.out.println(d);
+ 
+    }  
+ 
+    public static void imprimirTabuleiroCM() {                                                                      // "Habilite" esse método no 'jogo()', após o 'bombasPosicao()' para ver onde as minas estão;
+        System.out.println("");
+        for (int x = 0; x < (tabCampoMinado.length ); x++) {
+            if (x == 0) {
+                System.out.println("-------------------------------------------------------------------");
+                System.out.println("| ### | [1] | [2] | [3] | [4] | [5] | [6] | [7] | [8] | [9] | [10] |");
+                System.out.println("-------------------------------------------------------------------");
             }
-            
-    }
-    
-    public static void exibeMinas(){
-        for(int i=1 ; i < 9; i++)
-            for(int j=1 ; j < 9 ; j++)
-                if(minas[i][j] == -1)
-                    tabuleiro[i][j]='*';
-        
-        exibe();
-    }
-    
-    public static void iniciaTabuleiro(){
-        for(int i=1 ; i<minas.length ; i++)
-            for(int j=1 ; j<minas.length ; j++)
-                tabuleiro[i][j]= '_';
-    }
-    
-    public static void iniciaMinas(){
-        for(int i=0 ; i<minas.length ; i++)
-            for(int j=0 ; j<minas.length ; j++)
-                minas[i][j]=0;
-    }
-    
-    public static void sorteiaMinas(){
-        boolean sorteado;
-        int linha, coluna;
-        for(int i=0 ; i<10 ; i++){
-            
-            do{
-                linha = random.nextInt(8) + 1;
-                coluna = random.nextInt(8) + 1;
-                
-                if(minas[linha][coluna] == -1)
-                    sorteado=true;
-                else
-                    sorteado = false;
-            }while(sorteado);
-            
-            minas[linha][coluna] = -1;
+            for (int y = 0; y < tabCampoMinado[x].length; y++) {
+                if (y == 0) {
+                    if (x < 9) {
+                        System.out.print("| [" + (x+1) + "] ");
+                    } else if (x >= 9) {
+                        System.out.print("|[" + (x+1) + "] ");
+                    }
+                } else {
+                    System.out.print("|  " + tabCampoMinado[x][y] + "  ");
+                    if (y == 10) {
+                        System.out.print("|");
+                    }
+                }
+ 
+            }
+            System.out.println("");
+            System.out.println("-------------------------------------------------------------------");
         }
-    } 
+ 
+    }
+ 
+    public static void tentativasCM() {                                                                             // Começam as tentativas para ganhar o jogo;                                                                                                                  
+        Scanner userInput = new Scanner (System.in);
+ 
+        for (int contadorPontosMaximos = 0; contadorPontosMaximos < 100; ) {                                                        // Loop 'for' para continuar o jogo até vencer.
+            int x, y;                                                                                                               // O valor do loop no meio do ';  ;' não importa muito...
+            // ... contanto que seja maior que a condição de vitória;
+            do {
+                System.out.print("\nPor favor, escolha uma COLUNA (número entre 1 e 10): ");                                       // Loop 'do/while' para que, se o número não estiver entre 1 e 10
+                x = userInput.nextInt();                                                                                            // ... o loop começa denovo;
+                
+                if (x < 1 || x > 10) {
+                    System.out.println("\n[ERRO] Número fora dos parâmetros pedidos, tente novamente.");
+                }
+            } while (x < 1 || x > 10);
+ 
+            do {                                                                                                                    // Mesma coisa aqui, só que com o 'y';
+                System.out.print("Por favor, escolha uma LINHA (número entre 1 e 10): ");
+                y = userInput.nextInt();
+                
+                if (y < 1 || y > 10) {
+                    System.out.println("\n[ERRO] Número fora dos parâmetros pedidos, tente novamente.");
+                }
+            } while (y < 1 || y > 10);
+ 
+            if (y == 1 && x == 10) {                                                                                                // Começam as condições ( VEJAM ESSAS IMAGENS NO LINK: https://imgur.com/a/zaIMGih )
+                if (tabCampoMinado[(x - 1)][y].equals("B")) {                                                                       // CONDIÇÃO 1;
+                    System.out.println("Tem uma mina perto dessa posição.");                                                      // Quando 'y == 1' e 'x == 10', não posso vasculhar o...
+                } else if (tabCampoMinado[x][(y + 1)].equals("B")) {                                                                // '[y - 1]' e '[x + 1]', pois estão fora do Array;
+                    System.out.println("Tem uma mina perto dessa posição.");
+                }
+            } else if (x == 1 && y == 10) {                                                                                         // CONDIÇÃO 2;
+                if (tabCampoMinado[(x + 1)][y].equals("B")) {                                                                       // Quando 'x == 1' e 'u == 10', não posso vasculhar o...
+                    System.out.println("\nTem uma mina perto dessa posição.");                                                        // '[x - 1]' e '[y + 1]', pois estão fora do Array;
+                } else if (tabCampoMinado[x][(y - 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");                                                        // >>> LEMBRANDO QUE AS POSIÇÕES [n][0] E [0][n] ESTÃO SENDO USADAS PARA MARCAR OS NÚMEROS DE APOIO DO TABULEIRO;
+                }
+            } else if (x == 10 && y == 10) {                                                                                        // CONDIÇÃO 3;
+                if (tabCampoMinado[(x - 1)][y].equals("B")) {                                                                       // Quando 'x == 10' e 'y == 10, não posso vasculhar o...
+                    System.out.println("\nTem uma mina perto dessa posição.");                                                        // '[x + 1]' e '[y + 1]', pois estão fora do Array;
+                } else if (tabCampoMinado[x][(y - 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                }
+            } else if (x == 1 && y == 1) {                                                                                          // CONDIÇÃO 4;
+                if (tabCampoMinado[(x + 1)][y].equals("B")) {                                                                       // Quando 'x == 1' e 'y == 1, não posso vasculhar o...
+                    System.out.println("\nTem uma mina perto dessa posição.");                                                        // '[x - 1]' e '[y - 1]', pois estão fora do Array;
+                } else if (tabCampoMinado[x][(y + 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                }
+            } else if (x != 10 && y == 1) {                                                                                         // CONDIÇÃO 5;
+                if (tabCampoMinado[(x + 1)][y].equals("B")) {                                                                       // Quando 'x != 10' e 'y == 1, não posso vasculhar o...
+                    System.out.println("\nTem uma mina perto dessa posição.");                                                        // '[y - 1]', pois está fora do Array;
+                } else if (tabCampoMinado[(x - 1)][y].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                } else if (tabCampoMinado[x][(y + 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                }
+            } else if (x == 10 && y != 1) {                                                                                         // CONDIÇÃO 6;
+                if (tabCampoMinado[(x - 1)][y].equals("B")) {                                                                       // Quando 'x == 10' e 'y != 1, não posso vasculhar o...
+                    System.out.println("\nTem uma mina perto dessa posição.");                                                        // '[x + 1]', pois está fora do Array;
+                } else if (tabCampoMinado[x][(y + 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                } else if (tabCampoMinado[x][(y - 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                }
+            } else if (x != 1 && y == 10) {                                                                                         // CONDIÇÃO 7;
+                if (tabCampoMinado[(x + 1)][y].equals("B")) {                                                                       // Quando 'x != 1' e 'y == 10, não posso vasculhar o...
+                    System.out.println("\nTem uma mina perto dessa posição.");                                                        // '[y + 1]', pois está fora do Array;
+                } else if (tabCampoMinado[(x - 1)][y].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                } else if (tabCampoMinado[x][(y - 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                }
+            } else if (x == 1 && y != 10) {                                                                                         // CONDIÇÃO 8;
+                if (tabCampoMinado[(x + 1)][y].equals("B")) {                                                                       // Quando 'x == 1' e 'y != 10, não posso vasculhar o...
+                    System.out.println("\nTem uma mina perto dessa posição.");                                                        // '[x - 1]', pois está fora do Array;
+                } else if (tabCampoMinado[x][(y + 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                } else if (tabCampoMinado[x][(y - 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                }              
+            } else {
+                if (tabCampoMinado[(x + 1)][y].equals("B")) {                                                                       // CONDIÇÃO PADRÃO;
+                    System.out.println("\nTem uma mina perto dessa posição.");                                                        // Condição de pesquisa para todas as coodernadas...
+                } else if (tabCampoMinado[(x - 1)][y].equals("B")) {                                                                // Que não estão acima (do [2][2] até [9][9]);
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                } else if (tabCampoMinado[x][(y + 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                } else if (tabCampoMinado[x][(y - 1)].equals("B")) {
+                    System.out.println("\nTem uma mina perto dessa posição.");
+                }
+            }
+ 
+            if (tabCampoMinado[x][y].equals("L")) {                                                                                 // Se, a posição no tabuleiro normal possui um "L" (de livre de mina)...
+                if (tabOcultoCampoMinado[x][y] != ("@")) {                                                                          // Ele vai ver se aquela posição JÁ NÃO FOI MUDADA no tabuleiro oculto e...
+                    contadorPontosMaximos++;                                                                                        // Vai adicionar um ponto no 'contadorPontosMaximos'.
+                }
+                tabOcultoCampoMinado[x][y] = "@";                                                                                   // Além disso, vai colocar um "@" na coordenada escolhida no tabuleiro oculto;
+                System.out.println("\nEspaços livres descobertos: " + contadorPontosMaximos + " de 90.");                          // Guia para ajudar a ver quantos pontos já foram feitos;
+                imprimirTabuleiroOcultoCM();                                                                                        // Impressão do mapa, já atualizado com a jogada que foi feita.
+ 
+            } else if (tabCampoMinado[x][y].equals("B")) {                                                                          // Se o jogador achar uma mina ("B")...
+                System.out.println("\nQue pena! Você acertou uma mina!");     
+                System.out.println("\n");
+                return;                                                                                                             // ... volta para o método 'jogo()';
+            }
+ 
+            if (contadorPontosMaximos == 90) {                                                                                      // Se chegar a 90 pontos, o jogador vence;
+                System.out.println("\nParabéns! Você venceu!");
+                System.out.println("__________________________________________________________");
+            }
+        }
+    }
+ 
+    public static void tabuleiroOcultoCM() {                                                                        // Tabuleiro oculto do jogo;
+        System.out.println("");                                                                                     // Esse método literalmente só serve para criar o tabuleiro...;
+        // ... corretamente, aplicando um símbolo qualquer para a mina (nesse caso, "B");
+        for (int x = 0; x < tabOcultoCampoMinado.length; x++) {                                                     // Ele OBRIGATORIAMENTE precisa ser usado lá no método 'jogo()' NAQUELA ORDEM, pois sem ele o...
+            if (x == 0) {                                                                                           // ... o próximo método não será impresso corretamente;
+                System.out.println("-------------------------------------------------------------------");
+                System.out.println("| ### | [1] | [2] | [3] | [4] | [5] | [6] | [7] | [8] | [9] | [10] |");         // A linha 0 (x == 0) vai ser exclusiva para imprimir os número de apoio horizontais;
+                System.out.println("-------------------------------------------------------------------");          // Um método diferente foi tentado abaixo. Ambos dão o mesmo resultado;
+                x++;
+            }
+            for (int y = 0; y < tabOcultoCampoMinado[x].length; y++) {
+                if (y == 0) {
+                    if (x < 10) {
+                        System.out.print("|  " + (x) + "  ");
+                    } else if (x >= 10) {
+                        System.out.print("| " + (x) + "  ");
+                    }
+                } else {
+                    tabOcultoCampoMinado[x][y] = " ";                                                               // Simbolo aleatório para indicar a posição sem mina (no caso, um " ");
+                    System.out.print("|  " + tabOcultoCampoMinado[x][y] + "  ");
+                    if (y == 10) {
+                        System.out.print("|");
+                    }
+                }
+ 
+            }
+            System.out.println("");
+            System.out.println("-------------------------------------------------------------------");
+        }
+ 
+    }
+ 
+    public static void imprimirTabuleiroOcultoCM() {                                                                // Tabuleiro que vai ser mostrado quando o jogador começar a tentar;
+        System.out.println("");
+        System.out.println("-------------------------------------------------------------------");
+        System.out.println("| ### | [1] | [2] | [3] | [4] | [5] | [6] | [7] | [8] | [9] | [10] |");
+        System.out.println("-------------------------------------------------------------------");
+        for (int x = 1; x < tabOcultoCampoMinado.length; x++) {                                                     // Veja que o 'x' começou com 1, e não com zero;
+            for (int y = 0; y < tabOcultoCampoMinado[x].length; y++) {                                              // Isso se deve para que a posição [1][1] no tabuleiro não seja a posição [0][1] no Array Bidimensional;
+                if (y == 0) {
+                    if (x < 10) {
+                        System.out.print("|  " + (x) + "  ");
+                    } else if (x >= 10) {
+                        System.out.print("| " + (x) + "  ");
+                    }
+                } else {
+                    System.out.print("|  " + tabOcultoCampoMinado[x][y] + "  ");
+                    if (y == 10) {
+                        System.out.print("|");
+                    }
+                }
+ 
+            }
+            System.out.println("");
+            System.out.println("-------------------------------------------------------------------");
+        }
+ 
+    }
     // FIM DO CAMPO MINADO
     
     
