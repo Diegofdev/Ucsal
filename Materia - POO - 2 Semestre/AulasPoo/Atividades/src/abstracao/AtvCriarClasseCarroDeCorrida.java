@@ -1,4 +1,4 @@
-package br.ucsal;
+package abstracao;
 //Represente por meio de uma classe um Carro de Corrida, motor, velocidade, cilindradas e comportamento como virar a direita a esquerda, acelerar. *
 
 public class AtvCriarClasseCarroDeCorrida {

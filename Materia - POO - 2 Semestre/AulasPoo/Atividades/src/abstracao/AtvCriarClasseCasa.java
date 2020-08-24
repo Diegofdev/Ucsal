@@ -1,4 +1,4 @@
-package br.ucsal;
+package abstracao;
 //Represente por meio de uma classe uma casa. *
 
 public class AtvCriarClasseCasa {
