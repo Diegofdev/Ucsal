@@ -1,4 +1,4 @@
-package abstracao;
+package atvAbstracao;
 //Represente por meio de uma classe uma casa. *
 
 public class AtvCriarClasseCasa {

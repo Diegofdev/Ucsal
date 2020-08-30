@@ -1,4 +1,4 @@
-package abstracao;
+package atvAbstracao;
 // Represente por meio de uma classe um Aluno com características como nome, notas, curso e etc.
 
 public class AtvCriarClasseAluno {
