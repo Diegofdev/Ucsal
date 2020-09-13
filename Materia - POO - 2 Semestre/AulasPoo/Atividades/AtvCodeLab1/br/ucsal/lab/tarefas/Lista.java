@@ -19,7 +19,7 @@ public class Lista {
 	}
 	
 	public void adicionarTarefa(String titulo, String descricao) {
-		this.adicionarTarefa(titulo, descricao);
+		this.adicionarTarefa(titulo, descricao, false);
 	}
 	
 	public void adicionarTarefa(String titulo, String descricao, Boolean concluida) {

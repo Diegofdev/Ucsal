@@ -43,7 +43,7 @@ public class InterfaceGrafica extends JFrame {
 		JPanel formulario = new JPanel(new GridLayout(4, 2));
 		formulario.add(new JLabel("Titulo:"));
 		formulario.add(titulo);
-		formulario.add(new JLabel("DescriÁ„o:"));
+		formulario.add(new JLabel("Descri√ß√£o:"));
 		formulario.add(descricao);
 		formulario.add(new JLabel("Concluida:"));
 		formulario.add(concluida);
@@ -62,8 +62,8 @@ public class InterfaceGrafica extends JFrame {
 
 
 		colunas.add("TITULO");
-		colunas.add("DESCRI«√O");
-		colunas.add("CONCLUÕDA");
+		colunas.add("DESCRI√á√ÉO");
+		colunas.add("CONCLU√çDA");
 		JTable tabela = new JTable(dados, colunas);
 		JScrollPane centro = new JScrollPane(tabela);
 		this.add(centro);

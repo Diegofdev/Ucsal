@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="AtvDesafioTAD"/>
 	<classpathentry kind="src" path="AtvDesafioTAD2"/>
 	<classpathentry kind="src" path="AtvDesafioRecursividade"/>
+	<classpathentry kind="src" path="AtvListaDeExerciciosTAD"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
