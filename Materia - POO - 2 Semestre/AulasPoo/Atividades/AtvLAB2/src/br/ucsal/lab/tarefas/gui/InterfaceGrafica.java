@@ -17,6 +17,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import br.ucsal.lab.tarefas.Linha;
 import br.ucsal.lab.tarefas.Lista;
 import br.ucsal.lab.tarefas.Tarefa;
 
@@ -79,7 +80,7 @@ public class InterfaceGrafica extends JFrame {
 			}
 		});
 
-		atualizar.addActionListener(new ActionListener() {
+		/*atualizar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dados.clear();
@@ -89,6 +90,27 @@ public class InterfaceGrafica extends JFrame {
 					row.add(tarefa.getTitulo());
 					row.add(tarefa.getDescricao());
 					row.add(tarefa.getConcluida().toString());
+					
+					
+				
+					dados.add(row);
+				}
+				tabela.setModel(new DefaultTableModel(dados, colunas));
+
+
+			}
+		});*/
+		
+		atualizar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dados.clear();
+				
+				for (Linha linha : listaTarefas.getTarefas()) {
+					Vector<String> row = new Vector<>();
+					row.add(linha.coluna1());
+					row.add(linha.coluna2());
+					row.add(linha.coluna3());
 					
 					
 				

@@ -32,6 +32,11 @@ public class TarefaPrazo extends Tarefa {
 				", concluida=" + getConcluida() + "]" + "TarefaPrazo [data=" + getData() + "]";
 	}
 	
+	@Override
+	public String coluna3() {
+		return getData().format(formatter);
+	}
+	
 	//@Override
 	//public String getConcluida() {
 	//	String formatedDate;

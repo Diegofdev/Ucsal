@@ -31,6 +31,11 @@ public class TarefaEmail extends TarefaPrazo {
 		return "Tarefa [titulo=" + getTitulo() + ", descricao=" + getDescricao() + 
 				", concluida=" + getConcluida() + "]" + "TarefaPrazo [data=" + getData() + "]" + "Email [Email =" + getEmail() + "]";
 	}
+	
+	@Override
+	public String coluna3() {
+		return getEmail();
+	}
 
 	
 
