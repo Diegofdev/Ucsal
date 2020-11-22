@@ -4,13 +4,20 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -46,7 +53,7 @@ public class InterfaceGrafica extends JFrame {
 		JPanel formulario = new JPanel(new GridLayout(4, 2));
 		formulario.add(new JLabel("Titulo:"));
 		formulario.add(titulo);
-		formulario.add(new JLabel("DescriÃ§Ã£o:"));
+		formulario.add(new JLabel("Descrição:"));
 		formulario.add(descricao);
 		formulario.add(new JLabel("Concluida:"));
 		formulario.add(concluida);
@@ -71,6 +78,16 @@ public class InterfaceGrafica extends JFrame {
 		JTable tabela = new JTable(dados, colunas);
 		JScrollPane centro = new JScrollPane(tabela);
 		this.add(centro);
+		
+		JMenuBar barra = new JMenuBar();
+		JMenu menu = new JMenu("ARQUIVO");
+		JMenuItem importar = new JMenuItem ("IMPORTAR");
+		JMenuItem exportar = new JMenuItem ("EXPORTAR");
+		menu.add(importar);
+		menu.add(exportar);
+		barra.add(menu);
+		setJMenuBar(barra);
+		
 
 		adicionar.addActionListener(new ActionListener() {
 
@@ -133,6 +150,41 @@ public class InterfaceGrafica extends JFrame {
 				frame.setVisible(false);
 			}
 		});
+		
+		exportar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				final JFileChooser fc = new JFileChooser();
+				int returnVal = fc.showSaveDialog(InterfaceGrafica.this);
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					File file = fc.getSelectedFile();
+					try {
+						listaTarefas.exportar(file.getPath());
+					} catch (IOException e) {
+						JOptionPane.showMessageDialog(InterfaceGrafica.this, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		
+		importar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				final JFileChooser fc = new JFileChooser();
+				int returnVal = fc.showSaveDialog(InterfaceGrafica.this);
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					File file = fc.getSelectedFile();
+					try {
+						listaTarefas.importar(file.getPath());
+					} catch (IOException e) {
+						JOptionPane.showMessageDialog(InterfaceGrafica.this, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(300, 400);
