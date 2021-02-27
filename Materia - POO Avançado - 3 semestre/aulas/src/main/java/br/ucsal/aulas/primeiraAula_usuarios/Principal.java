@@ -2,6 +2,7 @@ package br.ucsal.aulas.primeiraAula_usuarios;
 
 
 import br.ucsal.aulas.primeiraAula_usuarios.model.Usuario;
+import br.ucsal.aulas.primeiraAula_usuarios.persistencia.UsuarioDAO;
 
 /**
  * Cadastro de usuarios para um sistema. um usuario vai possuir um nome, email, perfil e senha
@@ -23,13 +24,19 @@ import br.ucsal.aulas.primeiraAula_usuarios.model.Usuario;
 public class Principal {
     public static void main(String[] args) {
 
+        UsuarioDAO dao = new UsuarioDAO();
+
         Usuario usuario1 = new Usuario("pedro@email.com","Pedro", "1234","ADMINISTRADOR");
 
-        usuario1.salvar();
+        dao.salvar(usuario1);
 
         Usuario usuario2 = new Usuario("maria@email.com","Maria","1234");
 
-        usuario2.salvar();
+        dao.salvar(usuario2);
+
+        for (Usuario x: dao.lista()             ) {
+            System.out.println(x);
+        }
     }
 
 }

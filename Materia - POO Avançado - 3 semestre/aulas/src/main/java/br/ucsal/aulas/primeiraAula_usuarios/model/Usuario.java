@@ -7,7 +7,7 @@ public class Usuario {
 
     //Map<String, Usuario> usuarios = new HashMap<String, Usuario>();
 
-    private static List<Usuario> usuarios = new ArrayList<Usuario>();
+
 
     private String nome;
     private String email; // index
@@ -60,19 +60,9 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public static void adicionaUsuario (Usuario usuario) {
-        usuarios.add(usuario);
 
-    }
 
-    public void salvar() {
-        usuarios.add(this);
 
-        for (Usuario usuario : usuarios) {
-            System.out.println(usuario);
-        }
-
-    }
 
     @Override
     public String toString() {
