@@ -10,15 +10,21 @@ public class Usuario {
     private static List<Usuario> usuarios = new ArrayList<Usuario>();
 
     private String nome;
-    private String email; //index
-    private String perfil;
+    private String email; // index
     private String senha;
+    private String perfil; //?
 
-    public Usuario(String nome, String email, String perfil, String senha) {
+    public Usuario(String nome, String email, String senha, String perfil) {
+        super();
         this.nome = nome;
         this.email = email;
+        //TODO FIX SENHA DEVE SER CRIPTOGRAFADA
+        this.senha = senha;
         this.perfil = perfil;
-        this.senha = senha; //SENHA DEVE SER CRIPTOGRAFADA
+    }
+
+    public Usuario(String nome, String email, String senha) {
+        this(nome,email,senha, "USUARIO");
     }
 
 
@@ -57,6 +63,30 @@ public class Usuario {
     public static void adicionaUsuario (Usuario usuario) {
         usuarios.add(usuario);
 
+    }
+
+    public void salvar() {
+        usuarios.add(this);
+
+        for (Usuario usuario : usuarios) {
+            System.out.println(usuario);
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Usuario [nome=");
+        builder.append(nome);
+        builder.append(", email=");
+        builder.append(email);
+        builder.append(", senha=");
+        builder.append(senha);
+        builder.append(", perfil=");
+        builder.append(perfil);
+        builder.append("]");
+        return builder.toString();
     }
 
 }
