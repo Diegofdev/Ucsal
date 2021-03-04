@@ -1,0 +1,38 @@
+h1 {
+    font-size: 35px;
+    font-family:'Times New Roman', Times, serif
+}
+
+.form1 ul {
+    width:750px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+}
+.form1 li{
+    padding:12px; 
+    border-bottom:1px solid #eee;
+    position:relative;
+}
+.form1 label {
+    width:150px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+}
+.form1 input {
+    height:20px; 
+    width:300px; 
+    padding:5px 8px;
+}
+.form1 textarea {padding:8px; width:300px;}
+.form1 button {margin-left:156px;}
+
+input.submit {
+    height:30px; 
+    width:150px; 
+    padding:5px 8px;
+}
+

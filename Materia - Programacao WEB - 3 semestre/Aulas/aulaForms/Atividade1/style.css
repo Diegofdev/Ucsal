@@ -1,0 +1,68 @@
+html,
+body {
+  height: 100%;
+}
+table {
+    width: 100%;
+    table-layout: fixed;
+    border: 1px solid rgb(0, 0, 0);
+    
+}
+
+.header {
+    background-color: antiquewhite;
+}
+td {
+    color: black;
+    border: 1px solid rgb(0, 0, 0);
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    
+}
+header {
+    background: #03eec7;
+    text-align: center;
+}
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+    
+    
+}
+.aside{
+    position: absolute;
+    right:0px;
+    top  :0px;
+    border: 1px solid rgb(0, 0, 0);
+    width:300px;
+    height: 100%;
+    margin-top: 3px;
+    padding: 2px;
+}
+
+.content{
+    
+    position: absolute;
+    
+    width: 50%;
+    margin-top: 3px;
+    padding: 2px;
+
+
+}
+
+section{
+    border: 1px solid rgb(0, 0, 0);
+    width: 100%;
+    height: 350px;
+    margin-top: 3px;
+    
+    
+    padding: 2px;
+}

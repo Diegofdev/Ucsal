@@ -1,0 +1,60 @@
+<!-- Exercício! Criar um formulário que utilize os
+campos texto simples, combobox, e-mail, url e um
+campo para submissão de arquivos. Colocar dois
+botões (reset e submit). -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2</title>
+
+</head>
+
+<body>
+    <h1>Atividade 2</h1>
+    <hr />
+
+    <form name="form1" action="" class="form1">
+        <ul>
+            <li>
+                <label for="nome">Nome:</label> <input type="text" name="nome" size="50" autofocus>
+            </li>
+            <li>
+                <label for="sexo">Sexo:</label> <select name="sexo">
+                    <option value="M">M</option>
+                    <option value="F">F</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </li>
+            <li>
+                <label for="email">Email:</label> <input type="email" name="email" size="50" autofocus>
+            </li>
+            <li>
+                <label for="url">URL:</label> <input type="url" name="url" size="50" autofocus>
+            </li>
+            <li>
+                <label for="upload de arquivo">Upload de arquivo:</label> <input type="file" name="arquivo" />
+            </li>
+            <hr />
+            
+            <input type="submit" value="Enviar" class="submit" />
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <!--  Tag para dar espaço  -->
+            
+            <input type="reset" value="Limpar" class="submit" />
+            
+
+
+
+
+        </ul>
+    </form>
+</body>
+
+</html>
