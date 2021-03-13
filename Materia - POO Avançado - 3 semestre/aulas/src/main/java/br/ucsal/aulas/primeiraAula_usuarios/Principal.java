@@ -1,6 +1,7 @@
 package br.ucsal.aulas.primeiraAula_usuarios;
 
 
+import br.ucsal.aulas.primeiraAula_usuarios.controller.UsuarioController;
 import br.ucsal.aulas.primeiraAula_usuarios.model.Usuario;
 import br.ucsal.aulas.primeiraAula_usuarios.persistencia.UsuarioDAO;
 
@@ -23,6 +24,10 @@ import br.ucsal.aulas.primeiraAula_usuarios.persistencia.UsuarioDAO;
 
 public class Principal {
     public static void main(String[] args) {
+
+        UsuarioController controller = new UsuarioController();
+
+
 
         UsuarioDAO dao = new UsuarioDAO();
 
