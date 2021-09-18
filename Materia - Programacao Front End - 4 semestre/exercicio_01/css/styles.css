@@ -4,10 +4,19 @@ body {
     font-family: 'Montserrat',"Trebuchet MS", Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+    /*background: url(../imagens/fundobg2.png)*/
+    background-image: url(../imagens/fundobg4.png), url(../imagens/fundobg3.png);
+    background-position: right, left;
+    background-repeat: repeat-y, repeat-y;
+    
+    
+    
+    
 }
 
 main {
-    width: 960px;
+    background-color: white;
+    width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -21,31 +30,35 @@ header {
 header h1 {
     margin: 0;
     padding: 0;
+    
 }
 
 header h1 a {
+    
     background: url(../imagens/h1_logo.png) top left no-repeat;
     display: block;
-    width: 150px;
+    width: 170px;
     height: 50px;
     padding-left: 65px;
     padding-top: 10px;
-    color: #737373;
+    color: #f47b20;
     text-decoration: none;
     font-size: 24px;
     float: left;
+    
 
 }
 
 header h1 a:hover {
-    color:#2ecc71 ;
+    color:#41b6fa ;
 }
 
 /* CSS Menu social */
 
 header #menu_social {
-    height: 34px;
+    height: 70px;
     float: right;
+    
 }
 
 header #menu_social ul li {
@@ -58,69 +71,85 @@ header #menu_social ul li {
 header #menu_social ul li a {
     
     display: block;
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     margin-left: 5px;
     text-indent: -999999px;
 }
 
 header #menu_social ul li a.twitter {
     background: url(../imagens/twitter.png) no-repeat;
+    transition: all 0.4s ease;
 }
 
 header #menu_social ul li a:hover.twitter {
     background: url(../imagens/twitter_hover.png) no-repeat;
+    width: 50px;
+    height: 50px;
+    transition: all 0.4s ease;
 
 }
 
 header #menu_social ul li a.facebook {
     background: url(../imagens/facebook.png) no-repeat;
+    transition: all 0.4s ease;
 }
 
 header #menu_social ul li a:hover.facebook {
     background: url(../imagens/facebook_hover.png) no-repeat;
+    width: 50px;
+    height: 50px;
+    transition: all 0.4s ease;
 
 }
 
-header #menu_social ul li a.rss {
-    background: url(../imagens/rss.png) no-repeat;
+header #menu_social ul li a.instagram {
+    background: url(../imagens/instagram.png) no-repeat;
+    transition: all 0.4s ease;
 }
 
-header #menu_social ul li a:hover.rss {
-    background: url(../imagens/rss_hover.png) no-repeat;
+header #menu_social ul li a:hover.instagram {
+    background: url(../imagens/instagram_hover.png) no-repeat;
+    width: 50px;
+    height: 50px;
+    transition: all 0.4s ease;
 
 }
 
 header #menu_social ul li a.pinterest {
     background: url(../imagens/pinterest.png) no-repeat;
+    transition: all 0.4s ease;
 }
 
 header #menu_social ul li a:hover.pinterest {
     background: url(../imagens/pinterest_hover.png) no-repeat;
+    width: 50px;
+    height: 50px;
+    transition: all 0.4s ease;
 
 }
 
 header #menu_social ul li a.google {
     background: url(../imagens/google.png) no-repeat;
+    transition: all 0.4s ease;
 }
 
 header #menu_social ul li a:hover.google {
     background: url(../imagens/google_hover.png) no-repeat;
+    width: 50px;
+    height: 50px;
+    transition: all 0.4s ease;
 
 }
 
-header #menu_social ul li a.dribbble {
-    background: url(../imagens/dribbble.png) no-repeat;
-}
 
-header #menu_social ul li a:hover.dribbble {
-    background: url(../imagens/dribbble_hover.png) no-repeat;
 
-}
+
 
 /* CSS Menu principal */
 
 header #menu_principal {
+    
     border-top: #dadada solid 1px;
     clear: both;
     width: 960px;
@@ -142,16 +171,19 @@ header #menu_principal ul li {
 }
 
 header #menu_principal ul li a {
+    font-family: 'Gluten';
     display: block;
     padding-top: 30px;
     padding-left: 0px;
     padding-right: 15px;
     margin: 0;
-    color: #737373;
+    color: #ce0451;
+    
     text-decoration: none;
     text-align: left;
     font-weight: bold;
     font-size: 18px;
+    
     
 
 
@@ -174,17 +206,32 @@ header #menu_principal ul li a:hover {
     height: 775px;
 }
 
+
+
 #banner .img {
+    background: url(../imagens/banner_01.png) no-repeat bottom center;
+    transition: all 0.5s ease;
+    text-indent: -999999px;
     display: block;
     width: 830px;
     height: 472px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 120px;
+    
 
 }
 
+#banner :hover.img {
+    background: url(../imagens/banner_02.png) no-repeat;
+    width: 930px;
+    
+    transition: all 0.5s ease-in-out;
+}
+
 #banner .texto_banner {
+    font-family: 'Gluten';
+    font-size: 20px;
     display: block;
     width: 750px;
     height: 80px;
@@ -193,7 +240,7 @@ header #menu_principal ul li a:hover {
     margin-right: auto;
     text-align: center;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
 
 }
 
@@ -239,6 +286,8 @@ header #menu_principal ul li a:hover {
     font-weight: 600;
 }
 
+
+
 #conteudo a.leia {
     background: rgb(153, 153, 153);
     border: lightslategray solid 2px;
@@ -246,13 +295,14 @@ header #menu_principal ul li a:hover {
     color: white;
     font-weight: 500;
     text-decoration: none;
+    border-radius: 10px 20px;
 
 
 }
 
 #conteudo a:hover.leia {
     background: #2ecc71;
-    text-decoration: underline;
+    
 }
 
 /* CSS Menu Footer */
