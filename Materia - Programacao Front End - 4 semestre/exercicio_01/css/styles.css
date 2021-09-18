@@ -41,6 +41,8 @@ header h1 a:hover {
     color:#2ecc71 ;
 }
 
+/* CSS Menu social */
+
 header #menu_social {
     height: 34px;
     float: right;
@@ -61,8 +63,6 @@ header #menu_social ul li a {
     margin-left: 5px;
     text-indent: -999999px;
 }
-
-/* INICIO BOTÕES MENU SOCIAL */
 
 header #menu_social ul li a.twitter {
     background: url(../imagens/twitter.png) no-repeat;
@@ -118,6 +118,8 @@ header #menu_social ul li a:hover.dribbble {
 
 }
 
+/* CSS Menu principal */
+
 header #menu_principal {
     border-top: #dadada solid 1px;
     clear: both;
@@ -159,7 +161,7 @@ header #menu_principal ul li a:hover {
     color: #2ecc71;
 }
 
-/* FIM BOTÕES MENU SOCIAL */
+/* CSS Menu Banner */
 
 #banner {
     background: url(../imagens/bg_banner.png) no-repeat top center;
@@ -217,6 +219,8 @@ header #menu_principal ul li a:hover {
 
 }
 
+/* CSS Menu Conteudo */
+
 #conteudo {
     margin-top: 20px;
     display: block;
@@ -250,6 +254,8 @@ header #menu_principal ul li a:hover {
     background: #2ecc71;
     text-decoration: underline;
 }
+
+/* CSS Menu Footer */
 
 footer {
     background: #e2e2e2;
